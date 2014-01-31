@@ -5,8 +5,4 @@ def inject
 end 
 
 
-def Array
-  def inject
 
-  end
-end
