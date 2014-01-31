@@ -8,7 +8,7 @@ describe inject do
    end
 
 
-
+   it 'should take a range of numbers and multipe'
 
 
 
