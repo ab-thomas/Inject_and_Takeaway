@@ -21,15 +21,14 @@ MENU =
     MENU
   end
 
-  def calc_order(dish, quantity, subtotal)
+  def calc_order(order, subtotal)
    raise "The subtotal is not correct" if subtotal != total
-    subtotal = 
-    send_text
+   send_text
   end
 
-  def total
-    @total << subtotal = menu.inject(0) {|sum, order| sum + order[price:]}
-
+  def subtotal
+    @total = subtotal 
+    subtotal = menu.inject(0) {|sum, order| sum + order[:price]}
   end   
 
   def send_text
@@ -40,8 +39,6 @@ MENU =
     auth_token = 'aa0e0a542b58a9ed3c18ae43f98b33fc'
 
     @client = Twilio::REST::Client.new account_sid, auth_token
-    
-
     @client.account.messages.create(
       :from => '+441980322031',
       :to => 'my mobile ',
