@@ -4,11 +4,11 @@ require 'time'
 class Takeaway
 
 MENU = 
-    { dish: "Dim Sum", price: 4.99 },
+    [{ dish: "Dim Sum", price: 4.99 },
     { dish: "Steamed Rice", price: 2.50 },
     { dish: "Blackbean and Ginger chicken", price: 5.95 },
     { dish: "Cantonese duck", price: 5.95 },
-    { dish: "Lettuce Parcel", price: 4.50 }
+    { dish: "Lettuce Parcel", price: 4.50 }]
   
   attr_accessor :order, :total
 
@@ -21,15 +21,18 @@ MENU =
     MENU
   end
 
-  def calc_order(order, subtotal)
-   raise "The subtotal is not correct" if subtotal != total
-   send_text
+  def valid_order?(items, prices, quantity)
+    # map order to hash in an array
+    # calculate order total & compare to menu total
+    # methods: member? uniq flatten map select each include?
+    # order_total = order.inject(0) {|sum, order| sum + order[:price]}
+    raise "The subtotal is not correct" if subtotal != total 
+    send_text 
   end
 
-  def subtotal
-    @total = subtotal 
-    subtotal = menu.inject(0) {|sum, order| sum + order[:price]}
-  end   
+  def total
+    @total = valid_order.inject(:+)
+  end
 
   def send_text
    hour = 60*60
