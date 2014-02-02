@@ -1,4 +1,4 @@
-# require 'twilio-ruby'
+require 'twilio-ruby'
 
 class Takeaway
 
@@ -13,7 +13,7 @@ MENU =
 
   def initialize 
     @order = []
-    @total = []
+    @total = total
   end
 
   def menu
@@ -23,30 +23,28 @@ MENU =
   def calc_order(dish, quantity, subtotal)
    raise "The subtotal is not correct" if subtotal != total
     subtotal = 
-    # text customer 
+    send_text
   end
 
   def total
-    @total << 
+    @total << subtotal = menu.inject(0) {|sum, order| sum + order[price:]}
 
-  end
-
-  def 
+  end   
 
   def send_text
-   time = Time.now + # 1 hr
+   hour = 60*60
+   time = Time.now + hour
     
     account_sid = 'ACf09d599309a59149225dc7943f86d6f3'
     auth_token = 'aa0e0a542b58a9ed3c18ae43f98b33fc'
 
     @client = Twilio::REST::Client.new account_sid, auth_token
-    # "Your order will be delivered in 1 hour" - 
-    # How can text use actual time?
+    
 
     @client.account.messages.create(
       :from => '+441980322031',
       :to => 'my mobile ',
-      :body => 'Hey there!'
+      :body => 'Hey there! Your order will be delivered by #{time}'
     )
   end
 

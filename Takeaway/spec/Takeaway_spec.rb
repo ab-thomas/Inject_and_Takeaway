@@ -5,10 +5,8 @@ require 'Takeaway'
     context 'Menu'
       it 'should have a list of dishes and prices' do
         takeaway = Takeaway.new
-        expect(menu)
+        expect(takeaway.menu).to include?({ dish: "Dim Sum", price: 4.99 })
       end
-
-      it 'should    '
 
     context 'Calculate Order'
       it 'should raise an error if the sum of dishes not correct' do
