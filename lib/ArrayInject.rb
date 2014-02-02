@@ -1,17 +1,19 @@
 class Array
 
-# def my_inject(acc=0)
-#     self.each { |i| acc = yield(acc, i)}
-#     acc  
-#   end
-# end 
-
-def my_inject(accumulator)
-  self.each do |item|
-    accumulator = yield accumulator, item
+def my_inject(acc=0)
+    self.each { |i| acc = yield(acc, i)}
+    acc  
   end
-  accumulator 
-end
+end 
+
+# or
+
+  def my_inject(accumulator=0)
+    self.each do |item|
+      accumulator = yield accumulator, item
+    end
+    accumulator 
+  end
 end
 
 
