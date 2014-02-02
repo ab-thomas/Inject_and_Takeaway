@@ -21,11 +21,11 @@ MENU =
   end
 
   def order_total(dish, quantity, subtotal)
+    #calc order total
+    # raise exception if subtotal 
+    # or text customer "Your order will be delivered in 1 hour" - 
+    # How can the time be updated live in the text? 
   end
-
-  # def total
-  #   @total << order total
-  # end
 
 
 end

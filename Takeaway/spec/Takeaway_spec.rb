@@ -16,7 +16,7 @@ require 'Takeaway'
 
       it 'should not raise an error if the sum of dishes is correct' do
         takeaway = Takeaway.new
-        expect(takeaway.order_total("Dim Sum", 1, 4.99)).to_notd raise_error
+        expect(takeaway.order_total("Dim Sum", 1, 4.99)).to_not raise_error
       end
 
 
